@@ -1,6 +1,6 @@
-﻿using Task.Core.Models.Enums;
+﻿using Core.Models.Enums;
 
-namespace Task.Core.Models;
+namespace Core.Models;
 public class ActivityTask
 {
     public int Id { get; set; }
