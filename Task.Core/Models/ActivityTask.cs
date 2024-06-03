@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Task.Core.Models.Enums;
+﻿using Task.Core.Models.Enums;
 
 namespace Task.Core.Models;
-
 public class ActivityTask
 {
     public int Id { get; set; }
