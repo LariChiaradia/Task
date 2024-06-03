@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Infrastructure.Context;
+using Infrastructure.Repositories.Interface;
+using Infrastructure.Repositories;
+using Core.DTOs.Mapping;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +16,10 @@ string sqlConnection = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(sqlConnection)
 );
+
+builder.Services.AddAutoMapper(typeof(ActivityTaskDTOMapping));
+
+builder.Services.AddScoped<IActivityTaskRepository, ActivityTaskRepository>();
 
 var app = builder.Build();
 
