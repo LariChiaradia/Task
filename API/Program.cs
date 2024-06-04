@@ -5,6 +5,7 @@ using Infrastructure.Repositories;
 using Core.DTOs.Mapping;
 using Core.Services.Interfaces;
 using Core.Services;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,10 @@ string sqlConnection = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(sqlConnection)
 );
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<AppDbContext>()
+    .AddDefaultTokenProviders();
 
 builder.Services.AddAutoMapper(typeof(ActivityTaskDTOMapping));
 
