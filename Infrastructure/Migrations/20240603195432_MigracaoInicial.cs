@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.VisualBasic;
 
 #nullable disable
 
@@ -21,7 +22,7 @@ namespace Infrastructure.Migrations
                     Title = table.Column<string>(type: "nvarchar(80)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(300)", nullable: true),
                     Priority = table.Column<int>(type: "int", nullable: false),
-                    Difficulty = table.Column<int>(type: "int", nullable: false)
+                    Difficulty = table.Column<int>(type: "int", nullable: false),
                 },
                 constraints: table =>
                 {

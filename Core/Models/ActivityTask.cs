@@ -9,4 +9,6 @@ public class ActivityTask
     public string? Description { get; set; }
     public Priority Priority { get; set; }
     public Difficulty Difficulty { get; set; }
+    public Status Status { get; set; }
+    public DateTime? DueDate { get; set; }
 }
