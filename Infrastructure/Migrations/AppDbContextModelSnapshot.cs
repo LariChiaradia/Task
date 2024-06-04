@@ -8,7 +8,7 @@ using Infrastructure.Context;
 
 #nullable disable
 
-namespace Task.Infrastructure.Migrations
+namespace Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     partial class AppDbContextModelSnapshot : ModelSnapshot

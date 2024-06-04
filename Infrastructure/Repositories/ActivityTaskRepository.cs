@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Core.Models;
+﻿using Core.Models;
 using Infrastructure.Context;
-using Infrastructure.Repositories.Interface;
+using Core.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories

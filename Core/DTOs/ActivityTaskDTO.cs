@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Core.DTOs
 {
-    record class ActivityTaskDTO
+    public record ActivityTaskDTO
     {
         [Key]
         public int Id { get; set; }
