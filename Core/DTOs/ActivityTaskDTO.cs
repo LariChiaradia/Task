@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,7 @@ namespace Core.DTOs
     {
         [Key]
         public int Id { get; set; }
-        public DateTime? Created { get; set; }
+        public DateTime? Created { get; set; } = DateTime.Now;
         [Required(ErrorMessage = "O titulo é obrigatório")]
         [StringLength(80)]
         public string? Title { get; set; }
