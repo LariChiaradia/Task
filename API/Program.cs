@@ -19,7 +19,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "apicatalogo", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiTask", Version = "v1" });
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
     {
         Name = "Authorization",
@@ -57,6 +57,8 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
 
+builder.Services.AddAuthentication();
+
 var secretKey = builder.Configuration["JWT:SecretKey"] ?? throw new ArgumentException("Invalid secret key!!");
 
 builder.Services.AddAuthentication(options =>
@@ -84,6 +86,7 @@ builder.Services.AddAutoMapper(typeof(ActivityTaskDTOMapping));
 
 builder.Services.AddScoped<IActivityTaskRepository, ActivityTaskRepository>();
 builder.Services.AddScoped<IActivityTaskService, ActivityTaskService>();
+builder.Services.AddScoped<IAuthenticateService, AuthenticateService>();
 
 var app = builder.Build();
 
@@ -95,6 +98,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

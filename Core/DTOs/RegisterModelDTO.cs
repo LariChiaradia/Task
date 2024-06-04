@@ -9,11 +9,15 @@ namespace Core.DTOs
 {
     public record RegisterModelDTO
     {
-        [Required(ErrorMessage = "O usuário é obrigatório")]
-        public string? UserName { get; set; }
-        [Required(ErrorMessage = "O email é obrigatório")]
-        public string? Email { get; set; }
-        [Required(ErrorMessage = "A senha é obrigatória")]
-        public string? Password { get; set; }
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; }
+        [Required]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+        [DataType(DataType.Password)]
+        [Display(Name = "Confirma senha")]
+        [Compare("Password", ErrorMessage = "Senhas não conferem")]
+        public string ConfirmPassword { get; set; }
     }
 }
