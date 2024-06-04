@@ -9,7 +9,7 @@ using Infrastructure.Context;
 
 #nullable disable
 
-namespace Task.Infrastructure.Migrations
+namespace Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     [Migration("20240603195432_MigracaoInicial")]

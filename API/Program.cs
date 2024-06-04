@@ -1,8 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Infrastructure.Context;
-using Infrastructure.Repositories.Interface;
+using Core.Repositories.Interfaces;
 using Infrastructure.Repositories;
 using Core.DTOs.Mapping;
+using Core.Services.Interfaces;
+using Core.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +22,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddAutoMapper(typeof(ActivityTaskDTOMapping));
 
 builder.Services.AddScoped<IActivityTaskRepository, ActivityTaskRepository>();
+builder.Services.AddScoped<IActivityTaskService, ActivityTaskService>();
 
 var app = builder.Build();
 
