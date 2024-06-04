@@ -24,5 +24,8 @@ namespace Core.DTOs
         public Priority Priority { get; set; }
         [Required(ErrorMessage = "A dificuldade é obrigatório")]
         public Difficulty Difficulty { get; set; }
+        [Required(ErrorMessage = "O Status da tarefa é obrigatório")]
+        public Status Status { get; set; }
+        public DateTime? DueDate { get; set; }
     }
 }
